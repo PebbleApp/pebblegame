@@ -1,0 +1,20 @@
+{
+    "appKeys": {},
+    "capabilities": [
+        ""
+    ],
+    "companyName": "zedoul@gmail.com",
+    "longName": "helloworld",
+    "projectType": "native",
+    "resources": {
+        "media": []
+    },
+    "sdkVersion": "2",
+    "shortName": "helloworld",
+    "uuid": "5ce37f1c-ed62-4add-b938-09d141e9dc9c",
+    "versionCode": 1,
+    "versionLabel": "1.0",
+    "watchapp": {
+        "watchface": false
+    }
+}
