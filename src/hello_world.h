@@ -10,7 +10,13 @@
 enum {
 	WINDOW_MAIN,
 	WINDOW_GRAPHIC,
+	WINDOW_LIST,
 	WINDOW_MAX
+};
+
+enum {
+    MENULAYER_LIST,
+	MENULAYER_MAX,
 };
 
 #define STATUS_BAR_HEIGHT               16 // Applies to top and bottom status bars.
@@ -35,10 +41,13 @@ typedef struct someStruct {
 ******************************************************************************/
 	
 Window *g_windows[WINDOW_MAX];
+MenuLayer *g_menulayers[MENULAYER_MAX];
 uint8_t g_current_window;
 
 /******************************************************************************
   Function Definitions
 ******************************************************************************/
+
+int8_t show_window(const int8_t window_index, const bool animated);
 
 #endif // PEBBLE_LAYER_TEST_H_
