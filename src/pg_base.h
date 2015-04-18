@@ -1,5 +1,5 @@
-#ifndef PEBBLE_LAYER_TEST_H_
-#define PEBBLE_LAYER_TEST_H_
+#ifndef PG_BASE_H_
+#define PG_BASE_H_
 
 #include <pebble.h>
 
@@ -50,4 +50,10 @@ uint8_t g_current_window;
 
 int8_t show_window(const int8_t window_index, const bool animated);
 
-#endif // PEBBLE_LAYER_TEST_H_
+/******************************************************************************
+  Test Function Definitions
+******************************************************************************/
+#include <test_animation.h>
+#include <test_sensorinput.h>
+	
+#endif // PG_BASE_H_

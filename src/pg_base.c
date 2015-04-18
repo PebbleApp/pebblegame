@@ -113,6 +113,12 @@ void deinit(void) {
 	}
 }
 
+void game_main(void) {
+    init();
+	app_event_loop();
+	deinit();
+}
+
 /******************************************************************************
    Function: main
 Description: Main function for the app.
@@ -120,7 +126,8 @@ Description: Main function for the app.
     Outputs: Number of errors encountered.
 ******************************************************************************/
 int main(void) {
-	init();
-	app_event_loop();
-	deinit();
+	// e.g. if we want to test animation, comment out everything except "test_animation_main".
+	game_main();
+    //test_animation_main();
+    //test_sensorinput_main();
 }
