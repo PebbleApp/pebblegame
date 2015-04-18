@@ -1,7 +1,6 @@
-#include <pebble.h>
 #include "test_animation.h"
 
-void test_animation_main(void)
+void set_window_test_animation(void)
 {
-	
+	window_set_background_color(g_windows[WINDOW_ANIMATION], GColorBlack);
 }

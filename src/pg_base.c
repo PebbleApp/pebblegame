@@ -76,7 +76,11 @@ void init_window(const int8_t window_index) {
         layer_add_child(window_get_root_layer(g_windows[window_index]),
                     menu_layer_get_layer(g_menulayers[MENULAYER_LIST]));
 					
-	}
+	} else if (WINDOW_ANIMATION == window_index) {
+      set_window_test_animation();
+  } else if (WINDOW_SENSORINPUT == window_index) {
+      set_window_test_sensorinput();
+  }
 }
 
 int8_t show_window(const int8_t window_index, const bool animated) {
@@ -93,9 +97,7 @@ int8_t show_window(const int8_t window_index, const bool animated) {
 			 
 void init(void) {
 	int8_t i;
-	
 	srand(time(NULL));
-	g_current_window = WINDOW_LIST;
 	
 	for (i=0; i< WINDOW_MAX; ++i) {
 		init_window(i);
@@ -113,8 +115,8 @@ void deinit(void) {
 	}
 }
 
-void game_main(void) {
-    init();
+void game_main() {
+  init();
 	app_event_loop();
 	deinit();
 }
@@ -126,8 +128,7 @@ Description: Main function for the app.
     Outputs: Number of errors encountered.
 ******************************************************************************/
 int main(void) {
-	// e.g. if we want to test animation, comment out everything except "test_animation_main".
-	game_main();
-    //test_animation_main();
-    //test_sensorinput_main();
+	// e.g. if we want to test animation, set "g_current_window = WINDOW_ANIMATION
+	g_current_window = WINDOW_SENSORINPUT;
+  game_main();
 }
