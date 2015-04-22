@@ -6,18 +6,19 @@
 /******************************************************************************
   Enum Definitions
 ******************************************************************************/
-	
+
+
 enum {
 	WINDOW_MAIN,
 	WINDOW_GRAPHIC,
 	WINDOW_LIST,
-  WINDOW_ANIMATION,
-  WINDOW_SENSORINPUT,
+  	WINDOW_ANIMATION,
+  	WINDOW_SENSORINPUT,
 	WINDOW_MAX
 };
 
 enum {
-  MENULAYER_LIST,
+  	MENULAYER_LIST,
 	MENULAYER_MAX,
 };
 

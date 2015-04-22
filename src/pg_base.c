@@ -6,14 +6,16 @@ https://github.com/rigel314/pebbleMenuExample/blob/master/src/menuExample.c
 ******************************************************************************/
 
 #include "pg_base.h"
-
-void listmenu_select_click(struct MenuLayer *menu_layer, MenuIndex *cell_index, void *callback_context){
+	
+void listmenu_select_click(struct MenuLayer *menu_layer, MenuIndex *cell_index, void *callback_context)
+{
 	if (WINDOW_MAIN == cell_index->row) {
 	    show_window(WINDOW_MAIN, ANIMATED);
     } else if (WINDOW_GRAPHIC == cell_index->row) {
 		show_window(WINDOW_GRAPHIC, ANIMATED);
     }
 }
+
 void listmenu_draw_row(GContext *ctx, const Layer *cell_layer, MenuIndex *cell_index, void *callback_context){	
 	const char* row_titles[] = {"Black", "White"};
 	
@@ -25,6 +27,7 @@ void listmenu_draw_row(GContext *ctx, const Layer *cell_layer, MenuIndex *cell_i
 					   GTextOverflowModeTrailingEllipsis, GTextAlignmentCenter, 
 					   NULL);
 }
+
 void listmenu_draw_header(GContext *ctx, const Layer *cell_layer, uint16_t section_index, void *callback_context){
 	graphics_context_set_text_color(ctx, GColorBlack); // This is important.
 	graphics_draw_text(ctx, 
@@ -34,6 +37,7 @@ void listmenu_draw_header(GContext *ctx, const Layer *cell_layer, uint16_t secti
 					   GTextOverflowModeTrailingEllipsis, GTextAlignmentCenter, 
 					   NULL);
 }
+
 int16_t listmenu_get_header_height(struct MenuLayer *menu_layer, uint16_t section_index, void *callback_context){
 	return 30;
 }
@@ -77,10 +81,11 @@ void init_window(const int8_t window_index) {
                     menu_layer_get_layer(g_menulayers[MENULAYER_LIST]));
 					
 	} else if (WINDOW_ANIMATION == window_index) {
-      set_window_test_animation();
-  } else if (WINDOW_SENSORINPUT == window_index) {
-      set_window_test_sensorinput();
-  }
+        set_window_test_animation();
+		
+    } else if (WINDOW_SENSORINPUT == window_index) {
+        set_window_test_sensorinput();
+    }
 }
 
 int8_t show_window(const int8_t window_index, const bool animated) {
@@ -99,6 +104,9 @@ void init(void) {
 	int8_t i;
 	srand(time(NULL));
 	
+    init_window_test_animation();
+    init_window_test_sensorinput();
+	
 	for (i=0; i< WINDOW_MAX; ++i) {
 		init_window(i);
 	}
@@ -110,13 +118,17 @@ void init(void) {
 
 void deinit(void) {
 	int8_t i;
+	
+    deinit_window_test_animation();
+    deinit_window_test_sensorinput();
+	
 	for (i=0; i<WINDOW_MAX; ++i) {
 		window_destroy(g_windows[i]);	
 	}
 }
 
 void game_main() {
-  init();
+    init();
 	app_event_loop();
 	deinit();
 }
@@ -129,6 +141,7 @@ Description: Main function for the app.
 ******************************************************************************/
 int main(void) {
 	// e.g. if we want to test animation, set "g_current_window = WINDOW_ANIMATION
-	g_current_window = WINDOW_ANIMATION;
-  game_main();
+	g_current_window = WINDOW_SENSORINPUT;
+ 	game_main();
+	return 0;
 }

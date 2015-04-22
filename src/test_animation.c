@@ -40,6 +40,16 @@ static void food_init(Food *food,bool is_good_food_param) {
 }
 //Visual Studio
 
+void init_window_test_animation(void)
+{
+	
+}	
+
+void deinit_window_test_animation(void)
+{
+	
+}	
+
 void set_window_test_animation(void)
 {
 	window_set_background_color(g_windows[WINDOW_ANIMATION], GColorBlack);
@@ -48,10 +58,11 @@ void set_window_test_animation(void)
   s_background_layer = bitmap_layer_create(GRect(0, 0, 144, 168));
   bitmap_layer_set_bitmap(s_background_layer, s_background_bitmap);
   layer_add_child(window_get_root_layer(g_windows[WINDOW_ANIMATION]), bitmap_layer_get_layer(s_background_layer));
-*/
+
   initAni();
   Food *food = (Food*)malloc(sizeof(Food));
   food_init(food,true);
+ */ 
 }
 
 static void deInitAni(){
