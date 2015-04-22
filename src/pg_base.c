@@ -129,6 +129,6 @@ Description: Main function for the app.
 ******************************************************************************/
 int main(void) {
 	// e.g. if we want to test animation, set "g_current_window = WINDOW_ANIMATION
-	g_current_window = WINDOW_SENSORINPUT;
+	g_current_window = WINDOW_ANIMATION;
   game_main();
 }

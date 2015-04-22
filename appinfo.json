@@ -7,7 +7,13 @@
     "longName": "Game",
     "projectType": "native",
     "resources": {
-        "media": []
+        "media": [
+            {
+                "file": "images/food_0.png",
+                "name": "FOOD_0",
+                "type": "png"
+            }
+        ]
     },
     "sdkVersion": "2",
     "shortName": "Game",
