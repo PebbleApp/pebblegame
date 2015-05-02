@@ -6,14 +6,13 @@
 /******************************************************************************
   Enum Definitions
 ******************************************************************************/
-
-
 enum {
 	WINDOW_MAIN,
 	WINDOW_GRAPHIC,
 	WINDOW_LIST,
   	WINDOW_ANIMATION,
   	WINDOW_SENSORINPUT,
+  	WINDOW_FOODSCOMING,
 	WINDOW_MAX
 };
 
@@ -31,7 +30,6 @@ enum {
 #define FULL_SCREEN_FRAME               GRect(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT - STATUS_BAR_HEIGHT)
 #define ANIMATED                        true
 #define ANIMATED_NOT                    false
-
 /******************************************************************************
   Structure Definitions
 ******************************************************************************/
@@ -39,17 +37,33 @@ enum {
 typedef struct someStruct {
 } __attribute__((__packed__)) struct_t;	
 */	
+typedef struct Vec2d {
+  double x;
+  double y;
+} Vec2d;	
+
+typedef struct Food {
+#ifdef PBL_COLOR
+  GColor color;
+#endif
+  struct Vec2d* pos;
+  int size;	
+  BitmapLayer* img_layer;
+  GBitmap *img_bitmap;
+  bool is_good_food;
+} Food;
+	
 /******************************************************************************
   Global Variables
 ******************************************************************************/
 Window *g_windows[WINDOW_MAX];
 MenuLayer *g_menulayers[MENULAYER_MAX];
 uint8_t g_current_window;
+struct Food* foods;
 
 /******************************************************************************
   Function Definitions
 ******************************************************************************/
-
 int8_t show_window(const int8_t window_index, const bool animated);
 
 /******************************************************************************
@@ -57,5 +71,6 @@ int8_t show_window(const int8_t window_index, const bool animated);
 ******************************************************************************/
 #include <test_animation.h>
 #include <test_sensorinput.h>
+#include <test_foodscoming.h>
 	
 #endif // PG_BASE_H_

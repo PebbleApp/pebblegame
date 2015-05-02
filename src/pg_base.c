@@ -85,6 +85,9 @@ void init_window(const int8_t window_index) {
 		
     } else if (WINDOW_SENSORINPUT == window_index) {
         set_window_test_sensorinput();
+		
+	} else if (WINDOW_FOODSCOMING == window_index) {
+        set_window_test_foodscoming();
     }
 }
 
@@ -106,6 +109,7 @@ void init(void) {
 	
     init_window_test_animation();
     init_window_test_sensorinput();
+    init_window_test_foodscoming();
 	
 	for (i=0; i< WINDOW_MAX; ++i) {
 		init_window(i);
@@ -121,6 +125,7 @@ void deinit(void) {
 	
     deinit_window_test_animation();
     deinit_window_test_sensorinput();
+    deinit_window_test_foodscoming();
 	
 	for (i=0; i<WINDOW_MAX; ++i) {
 		window_destroy(g_windows[i]);	
@@ -141,7 +146,7 @@ Description: Main function for the app.
 ******************************************************************************/
 int main(void) {
 	// e.g. if we want to test animation, set "g_current_window = WINDOW_ANIMATION
-	g_current_window = WINDOW_SENSORINPUT;
+	g_current_window = WINDOW_FOODSCOMING;// WINDOW_SENSORINPUT;
  	game_main();
 	return 0;
 }

@@ -3,27 +3,13 @@
 static BitmapLayer *s_background_layer;
 static GBitmap *s_background_bitmap;
     
-typedef struct Vec2d {
-  double x;
-  double y;
-} Vec2d;
-
-typedef struct Food {
-#ifdef PBL_COLOR
-  GColor color;
-#endif
-  Vec2d pos;
-  BitmapLayer* img_layer;
-  GBitmap *img;
-  bool is_good_food;
-} Food;
-
-static Food* food_array_ptr;
 int num_of_food=3;
 
 static void initAni(){
+	/*
   food_array_ptr=(Food*)malloc(num_of_food*sizeof(Food));  //memory allocated using malloc
 	APP_LOG(APP_LOG_LEVEL_DEBUG, "food array initialized");
+    */	
 }
 
 static void food_init(Food *food,bool is_good_food_param) {
@@ -32,9 +18,11 @@ static void food_init(Food *food,bool is_good_food_param) {
   bitmap_layer_set_bitmap(layer, img);
   layer_add_child(window_get_root_layer(g_windows[WINDOW_ANIMATION]), bitmap_layer_get_layer(s_background_layer));
   */
+	/*
   food->pos.x = 20;
   food->pos.y=30;
   food->is_good_food=is_good_food_param;
+  */
  // food->img_layer= layer;
  // food->img =img;
 }
@@ -67,7 +55,7 @@ void set_window_test_animation(void)
 
 static void deInitAni(){
   //free space
-  free(food_array_ptr);
+  //free(food_array_ptr);
   /*
   @ TODO unload bitmap layers
   static void main_window_unload(Window *window) {

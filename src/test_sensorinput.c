@@ -4,11 +4,6 @@
 #define MATH_PI 3.141592653589793238462
 #define ACCEL_STEP_MS 50
 
-typedef struct Vec2d {
-  double x;
-  double y;
-} Vec2d;
-
 typedef struct Balloon {
   Vec2d pos;
   double radius;
