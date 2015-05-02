@@ -9,6 +9,16 @@
     "resources": {
         "media": [
             {
+                "file": "images/dude2.png",
+                "name": "DUDE_2",
+                "type": "png"
+            },
+            {
+                "file": "images/dude3.png",
+                "name": "DUDE_1",
+                "type": "png"
+            },
+            {
                 "file": "images/food_0.png",
                 "name": "FOOD_0",
                 "type": "png"
